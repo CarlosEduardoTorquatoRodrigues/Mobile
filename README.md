@@ -6,4 +6,7 @@ npx create-expo-app ex01 --template blank@sdk-54
 
 cd projeto
 npx expo install react-dom react-native-web
-npx expo start --tunnel
+npx expo start -c --tunnel
+
+
+npx expo install @react-navigation/native @react-navigation/bottom-tabs react-native-screens react-native-safe-area-context
