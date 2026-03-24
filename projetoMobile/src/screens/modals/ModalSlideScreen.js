@@ -1,15 +1,22 @@
 import React, { useState } from 'react';
-import { View, Text, Modal, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, Modal, TouchableOpacity } from 'react-native';
+import modalStyles from '../../styles/modalStyles';
+import theme from '../../styles/theme';
 
 export default function ModalSlideScreen() {
   const [visible, setVisible] = useState(false);
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Modal Slide</Text>
+    <View style={modalStyles.container}>
+      <Text style={[modalStyles.title, { color: theme.colors.primary }]}>
+        Modal Slide
+      </Text>
 
-      <TouchableOpacity style={styles.button} onPress={() => setVisible(true)}>
-        <Text style={styles.buttonText}>Abrir Modal</Text>
+      <TouchableOpacity
+        style={[modalStyles.button, { backgroundColor: theme.colors.primary }]}
+        onPress={() => setVisible(true)}
+      >
+        <Text style={modalStyles.buttonText}>Abrir Modal</Text>
       </TouchableOpacity>
 
       <Modal
@@ -18,12 +25,17 @@ export default function ModalSlideScreen() {
         visible={visible}
         onRequestClose={() => setVisible(false)}
       >
-        <View style={styles.modalOverlay}>
-          <View style={styles.modalCard}>
-            <Text style={styles.modalTitle}>Animação Slide</Text>
-            <Text style={styles.modalText}>Este modal desliza de baixo para cima</Text>
-            <TouchableOpacity style={styles.closeButton} onPress={() => setVisible(false)}>
-              <Text style={styles.closeButtonText}>Fechar</Text>
+        <View style={modalStyles.modalOverlay}>
+          <View style={modalStyles.modalCard}>
+            <Text style={modalStyles.modalTitle}>Animação Slide</Text>
+            <Text style={modalStyles.modalText}>
+              Este modal desliza de baixo para cima
+            </Text>
+            <TouchableOpacity
+              style={[modalStyles.closeButton, { backgroundColor: theme.colors.primary }]}
+              onPress={() => setVisible(false)}
+            >
+              <Text style={modalStyles.closeButtonText}>Fechar</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -31,63 +43,3 @@ export default function ModalSlideScreen() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#f5f5f5',
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#2196F3',
-    marginBottom: 30,
-  },
-  button: {
-    backgroundColor: '#2196F3',
-    paddingVertical: 12,
-    paddingHorizontal: 30,
-    borderRadius: 8,
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  modalCard: {
-    width: '80%',
-    backgroundColor: '#fff',
-    borderRadius: 10,
-    padding: 20,
-    alignItems: 'center',
-  },
-  modalTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 10,
-  },
-  modalText: {
-    fontSize: 16,
-    textAlign: 'center',
-    marginBottom: 20,
-    color: '#666',
-  },
-  closeButton: {
-    backgroundColor: '#2196F3',
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 8,
-  },
-  closeButtonText: {
-    color: '#fff',
-    fontWeight: 'bold',
-  },
-});

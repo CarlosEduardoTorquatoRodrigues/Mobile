@@ -12,7 +12,7 @@ npx expo start -c --tunnel
 # Dependencias
 npx expo install @react-navigation/native @react-navigation/bottom-tabs react-native-screens react-native-safe-area-context
 npm install @react-navigation/native @react-navigation/bottom-tabs @react-navigation/drawer
-npx expo install react-native-screens react-native-safe-area-context react-native-gesture-handler react-native-reanimated
+
 
 # Pacote expo
 npx expo install react-native-screens react-native-safe-area-context react-native-gesture-handler react-native-reanimated
