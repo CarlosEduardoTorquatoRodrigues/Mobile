@@ -2,7 +2,7 @@ import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import HomeScreen from '../screens/HomeScreen';
 import DrawerModalNavigator from './DrawerModalNavigator';
-import DrawerScrollNavigator from './DrawerScrollNavigator';
+
 
 const Drawer = createDrawerNavigator();
 
@@ -20,7 +20,7 @@ export default function AppNavigator() {
     >
       <Drawer.Screen name="Início" component={HomeScreen} />
       <Drawer.Screen name="Modais" component={DrawerModalNavigator} />
-      <Drawer.Screen name="Listas com Rolagem" component={DrawerScrollNavigator} />
+      
     </Drawer.Navigator>
   );
 }
