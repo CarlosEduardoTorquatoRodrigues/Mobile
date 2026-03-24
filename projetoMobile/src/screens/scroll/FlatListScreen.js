@@ -1,22 +1,23 @@
 import React from 'react';
-import { FlatList, Text, View, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { FlatList, View, Text, StyleSheet } from 'react-native';
 import { flatListData } from '../../utils/data';
 
 export default function FlatListScreen() {
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
+      <Text style={styles.title}>FlatList</Text>
       <FlatList
         data={flatListData}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <View style={styles.item}>
-            <Text style={styles.text}>{item.name}</Text>
+            <Text style={styles.itemText}>{item.name}</Text>
           </View>
         )}
-        contentContainerStyle={styles.contentContainer}
+        contentContainerStyle={styles.list}
+        showsVerticalScrollIndicator={true}
       />
-    </SafeAreaView>
+    </View>
   );
 }
 
@@ -25,16 +26,23 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f5f5f5',
   },
-  contentContainer: {
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginVertical: 20,
+    color: '#4CAF50',
+  },
+  list: {
     padding: 20,
   },
   item: {
-    marginBottom: 10,
-    padding: 20,
     backgroundColor: '#e0f7fa',
+    padding: 15,
+    marginBottom: 10,
     borderRadius: 8,
   },
-  text: {
+  itemText: {
     fontSize: 16,
     fontWeight: 'bold',
   },
