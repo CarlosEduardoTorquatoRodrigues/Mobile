@@ -6,32 +6,38 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: theme.colors.background,
   },
-  centerContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: theme.colors.background,
+  content: {
+    padding: theme.spacing.lg,
   },
   title: {
     fontSize: theme.fontSize.xxlarge,
     fontWeight: 'bold',
-    color: theme.colors.primary,
     textAlign: 'center',
-    marginBottom: theme.spacing.md,
+    marginBottom: theme.spacing.lg,
   },
-  text: {
+  item: {
+    padding: theme.spacing.md,
+    marginBottom: theme.spacing.sm,
+    borderRadius: theme.borderRadius.medium,
+  },
+  itemText: {
     fontSize: theme.fontSize.regular,
-    color: theme.colors.darkGray,
+    fontWeight: 'bold',
   },
-  card: {
-    backgroundColor: theme.colors.white,
-    borderRadius: theme.borderRadius.large,
+  description: {
+    fontSize: theme.fontSize.small,
+    color: theme.colors.gray,
+    marginTop: theme.spacing.xs,
+  },
+  list: {
     padding: theme.spacing.lg,
-    marginBottom: theme.spacing.md,
-    shadowColor: theme.colors.black,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
+  },
+  header: {
+    fontSize: theme.fontSize.large,
+    fontWeight: 'bold',
+    padding: theme.spacing.sm,
+    borderRadius: theme.borderRadius.medium,
+    marginTop: theme.spacing.sm,
+    marginBottom: theme.spacing.xs,
   },
 });
