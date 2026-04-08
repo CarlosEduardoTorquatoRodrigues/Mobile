@@ -4,17 +4,18 @@ import { signOut } from 'firebase/auth';
 import { auth } from '../config/firebaseConfig';
 
 export default function WelcomeScreen({ navigation }) {
-  
   const handleLogout = () => {
-    signOut(auth).then(() => {
-      navigation.replace('Login');
-    }).catch((error) => {
-      console.error(error);
-    });
-  };
+      signOut(auth).then(() => {
+        // Remove o usuário da sessão e volta para o Login
+        navigation.replace('Login');
+      }).catch((error) => {
+        console.error(error);
+      });
+    };
 
   return (
     <View style={styles.container}>
+      {/* Pegamos o email do usuário logado dinamicamente via auth.currentUser */}
       <Text style={styles.welcomeText}>Bem-vindo!</Text>
       <Text style={styles.emailText}>{auth.currentUser?.email}</Text>
       
@@ -44,7 +45,7 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   button: {
-    backgroundColor: '#dc3545',
+    backgroundColor: '#dc3545', // Cor vermelha para indicar saída
     paddingHorizontal: 30,
     paddingVertical: 10,
     borderRadius: 8,
