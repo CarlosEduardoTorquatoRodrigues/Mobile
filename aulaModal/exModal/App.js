@@ -4,7 +4,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { SafeAreaProvider } from "react-native-safe-area-context"; // Corrigido de SafeAreaFrameProvider
 import CustomModalScreen from "./components/CustomModal";
 
-// Inicializa o Navegador de Abas (Tabs)
 const Tab = createBottomTabNavigator();
 
 export default function App() { 

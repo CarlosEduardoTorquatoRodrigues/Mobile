@@ -4,13 +4,9 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { AuthContext } from '../context/AuthContext';
 import { ActivityIndicator, View, TouchableOpacity, Text } from 'react-native';
-
-
 import HomeScreen from '../screens/HomeScreen';
 import DrawerModalNavigator from '../navigation/DrawerModalNavigator';
 import DrawerScrollNavigator from '../navigation/DrawerScrollNavigator';
-
-
 import LoginScreen from './LoginScreen';
 import RegisterScreen from './RegisterScreen';
 import FormScreen from './FormScreen';
