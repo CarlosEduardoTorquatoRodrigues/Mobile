@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Cadastrar Produto</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+    <!-- navbar -->
+    <div th:replace="fragments/navbar :: navbar"></div>
+
+    <!-- conteúdo principal -->
+    <main class="main-content">
+        <h1>Cadastrar/Editar Produto</h1>
+
+        <!-- Exibir mensagem global de sucesso, se houver -->
+        <div th:if="${success}" class="success" th:text="${success}"></div>
+
+        <form th:action="@{/produtos/cadastrar}" th:object="${produto}" method="post">
+            <!-- ID oculto para edição (se existir) -->
+            <input type="hidden" th:field="*{id}" />
+
+            <div class="form-group">
+                <label>Nome:</label>
+                <input type="text" th:field="*{nome}" placeholder="Nome do produto" required />
+                <div class="error" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
+            </div>
+
+            <div class="form-group">
+                <label>Quantidade:</label>
+                <input type="number" th:field="*{quantidade}" step="1" placeholder="0" />
+                <div class="error" th:if="${#fields.hasErrors('quantidade')}" th:errors="*{quantidade}"></div>
+            </div>
+
+            <div class="form-group">
+                <label>Valor (R$):</label>
+                <input type="number" th:field="*{valor}" step="0.01" placeholder="0.00" lang="en" />
+                <div class="error" th:if="${#fields.hasErrors('valor')}" th:errors="*{valor}"></div>
+            </div>
+
+            <button type="submit" class="botao">Salvar</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>(c) 2025 Meu App</p>
+    </footer>
+
+    <!-- JavaScript para garantir conversão de vírgula para ponto (opcional) -->
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const valorInput = document.querySelector('[th\\:field="*{valor}"]');
+            if (valorInput && valorInput.value.includes(',')) {
+                valorInput.value = valorInput.value.replace(',', '.');
+            }
+        });
+    </script>
+</body>
+
+</html>
