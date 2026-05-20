@@ -10,6 +10,7 @@ Content-Type: application/json
   "valor": 3899.99
 }
 
+
 ### Listar todos os produtos
 GET {{ base_url }}/api/produtos
 Accept: application/json
